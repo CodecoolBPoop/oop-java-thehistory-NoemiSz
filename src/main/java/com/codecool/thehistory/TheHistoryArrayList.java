@@ -53,8 +53,33 @@ public class TheHistoryArrayList implements TheHistory {
     @Override
     public void replaceMoreWords(String[] fromWords, String[] toWords) {
         //TODO: check the TheHistory interface for more information
+        int index = 0;
+        List fromW = Arrays.asList(fromWords);
+        String toW = Arrays.toString(toWords).replace(",","").replace("[", "").replace("]", "").trim();
+
+            index = Collections.indexOfSubList(wordsArrayList, fromW);
 
 
+            for (int i = index; i < wordsArrayList.size() - 1; toW.length()) {
+                if (index < 0) {
+                    break;
+                }
+
+                if (index == wordsArrayList.size() - 1) {
+                    wordsArrayList.remove(index);
+                    wordsArrayList.add(index, toW);
+                } else if (fromW.size() == wordsArrayList.size()) {
+                    clear();
+                    add(toW);
+                    break;
+                } else {
+                    wordsArrayList.subList(index, Math.min(index + fromW.size(), wordsArrayList.size() - 1)).clear();
+                    wordsArrayList.add(index, toW);
+                }
+
+                index = Collections.indexOfSubList(wordsArrayList, fromW);
+
+            }
 
     }
 
