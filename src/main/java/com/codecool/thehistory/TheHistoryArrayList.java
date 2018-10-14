@@ -73,7 +73,7 @@ public class TheHistoryArrayList implements TheHistory {
                     add(toW);
                     break;
                 } else {
-                    wordsArrayList.subList(index, Math.min(index + fromW.size(), wordsArrayList.size() - 1)).clear();
+                    wordsArrayList.subList(index, Math.min(index + fromW.size(), wordsArrayList.size())).clear();
                     wordsArrayList.add(index, toW);
                 }
 

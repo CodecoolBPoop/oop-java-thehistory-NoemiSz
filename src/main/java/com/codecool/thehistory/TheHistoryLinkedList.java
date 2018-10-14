@@ -54,6 +54,33 @@ public class TheHistoryLinkedList implements TheHistory {
     @Override
     public void replaceMoreWords(String[] fromWords, String[] toWords) {
         //TODO: check the TheHistory interface for more information
+        int index = 0;
+        List fromW = Arrays.asList(fromWords);
+        String toW = Arrays.toString(toWords).replace(",","").replace("[", "").replace("]", "").trim();
+
+        index = Collections.indexOfSubList(wordsLinkedList, fromW);
+
+
+        for (int i = index; i < wordsLinkedList.size() - 1; toW.length()) {
+            if (index < 0) {
+                break;
+            }
+
+            if (index == wordsLinkedList.size() - 1) {
+                wordsLinkedList.remove(index);
+                wordsLinkedList.add(index, toW);
+            } else if (fromW.size() == wordsLinkedList.size()) {
+                clear();
+                add(toW);
+                break;
+            } else {
+                wordsLinkedList.subList(index, Math.min(index + fromW.size(), wordsLinkedList.size())).clear();
+                wordsLinkedList.add(index, toW);
+            }
+
+            index = Collections.indexOfSubList(wordsLinkedList, fromW);
+
+        }
 
 
         
